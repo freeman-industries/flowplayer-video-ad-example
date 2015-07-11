@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- flowplayer depends on jQuery 1.7.1+ (for now) -->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+		<!-- flowplayer.js -->
+		<script type="text/javascript" src="flowplayer-3.2.13.min.js"></script>
+
+		<style>
+
+			html, body{
+				margin:0px;padding:0px;
+				width:100%;
+				height:100%;
+			}
+
+			#fp{
+				width:80%;
+				height:80%;
+				margin:0 auto;
+			}
+
+		</style>
+
+	</head>
+
+	<body>
+
+	<!-- player 1 -->
+	<div id="fp"></div>
+
+		<script>
+			flowplayer("fp", "flowplayer-3.2.18.swf", {
+				plugins: {
+					controls: null,
+					ima: {
+						url: "flowplayer.ima-3.2.7.swf"
+					}
+				},
+
+				play:
+				{
+				    opacity: 0.0,
+				    label: null, // label text; by default there is no text
+				    replayLabel: null, // label text at end of video clip
+				},
+				 
+				onFinish: function()
+				{
+				    //this.play(); //auto replay clip
+				},
+
+				clip: {
+					provider: 'ima',
+					url: 'http://ad4.liverail.com/?LR_PUBLISHER_ID=1331&LR_SCHEMA=vast2-vpaid&LR_CONTENT=6&LR_TITLE=matchchat&LR_VIDEO_ID=1&LR_AUTOPLAY=1',
+					onBeforeFinish: function() {
+			            // loop clip return false; 
+			        }
+				}
+			});
+		</script>
+
+	</body>
+</html>
